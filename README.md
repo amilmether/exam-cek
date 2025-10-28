@@ -17,8 +17,6 @@ To execute 8086 assembly programs using MASM / TASM, ensure your DOS environment
 
 ---
 
----
-
 ## 🚀 How to Run the Codes
 
 ### 🧩 For System Software Programs (C)
