@@ -10,7 +10,7 @@ void main()
     f2 = fopen("opcode.txt", "r");
     f3 = fopen("out1.txt", "w");
     f4 = fopen("sym1.txt", "w");
-    
+
     while (fscanf(f1, "%s\t%s\t%s", lab, opcode, opa) != EOF)
     {
         if (strcmp(lab, "**") == 0)
@@ -52,7 +52,7 @@ void main()
                 fprintf(f3, "\n%d\t%s\t%s\t%s",
                         locctr, lab, opcode, opa);
                 fprintf(f4, "\n%d%s", locctr, lab);
-                locctr = locctr + 1;
+                locctr = locctr + 3;
             }
             else if (strcmp(opcode, "BYTE") == 0)
             {
