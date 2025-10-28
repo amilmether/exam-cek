@@ -10,6 +10,7 @@ void main()
     fp2 = fopen("out2.txt", "w");
     fp3 = fopen("opcode.txt", "r");
     fp4 = fopen("sym1.txt", "r");
+    
     fscanf(fp1, "%s\t%s\t%s", label, opcode, operand);
     if (strcmp(opcode, "START") == 0)
     {

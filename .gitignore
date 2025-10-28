@@ -1,0 +1,37 @@
+# Compiled source files
+*.out
+*.o
+*.obj
+*.exe
+
+# Assembly listing and object files
+*.lst
+*.crf
+
+# Intermediate build files
+*.bin
+*.map
+
+# Backup files
+*~
+*.bak
+
+# Logs and temporary files
+*.log
+*.tmp
+*.temp
+
+# IDE / Editor specific
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Python virtual environments (if used)
+venv/
+__pycache__/
+*.pyc
