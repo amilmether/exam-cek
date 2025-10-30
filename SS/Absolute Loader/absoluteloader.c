@@ -13,7 +13,7 @@ void main()
     scanf("%s", name);
     fscanf(fp1, "%s", line);
 
-    for (i = 2, j = 0, i < 8; j < 6; i++, j++)
+    for (i = 2, j = 0; line[i] != '^'; i++, j++)
         name1[j] = line[i];
     name1[j] = '\0';
     printf("NAME %s\n", name1);
@@ -24,7 +24,7 @@ void main()
         {
             if (line[0] == 'T')
             {
-                for (i = 2, j = 0, i < 8; j < 6; i++, j++)
+                for (i = 2, j = 0; line[i] != '^'; i++, j++)
                     staddr[j] = line[i];
                 staddr[j] = '\0';
                 staddr1 = (atoi(staddr));
