@@ -14,6 +14,8 @@ It includes both **System Software (C programs)** and **Microprocessor (8086 Ass
 If you're new to using MASM or TASM for 8086 programming, watch this step-by-step video guide 👇  
 👉 [**Watch on YouTube**](https://youtu.be/SZODlwjU_GY?si=jyWDMLairAxO2zy0)
 
+## 🚀 How to Run the Codes
+
 <p align="center">
   <img src="IMAGES/DOS%20setup.jpg" alt="DOS Setup" width="600">
 </p>
