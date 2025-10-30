@@ -4,8 +4,8 @@
 void main()
 {
     FILE *fp;
-    int i, addr1, l, j, staddr1;
-    char name[10], line[50], name1[10], addr[10], rec[10], ch, staddr[10];
+    int i, addr1, j, staddr1;
+    char name[10], line[50], name1[10], staddr[10];
     printf("Enter program name : ");
     scanf("%s", name);
     fp = fopen("objcode.txt", "r");
