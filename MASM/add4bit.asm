@@ -1,60 +1,48 @@
 ASSUME CS:CODE, DS:DATA
 
 DATA SEGMENT
-    STR1 DB 0AH, "ENTER 1ST NO:$"
-    STR2 DB 0AH, "ENTER 2ND NO:$"
-    STR3 DB 0AH, "SUM IS:$"
+    MSG1 DB "Enter 1st number (0-9): $"
+    MSG2 DB "Enter 2nd number (0-9): $"
+    MSG3 DB "Sum is: $"
 DATA ENDS
 
 CODE SEGMENT
 START:
     MOV AX, DATA
-    MOV DS, AX
+    MOV DS, AX        ; initialize data segment
 
-    ; Display first prompt
-    LEA DX, STR1
+    ; ---- First number ----
+    MOV DX, OFFSET MSG1
     MOV AH, 09H
-    INT 21H
-
-    ; Read first number
+    INT 21H            ; print prompt
     MOV AH, 01H
-    INT 21H
-    SUB AL, 30H
-    MOV BL, AL
+    INT 21H            ; read character
+    SUB AL, 30H        ; convert ASCII to number
+    MOV BL, AL         ; store in BL
 
-    ; Display second prompt
-    LEA DX, STR2
+    ; ---- Second number ----
+    MOV DX, OFFSET MSG2
     MOV AH, 09H
-    INT 21H
-
-    ; Read second number
+    INT 21H            ; print prompt
     MOV AH, 01H
-    INT 21H
-    SUB AL, 30H
+    INT 21H            ; read character
+    SUB AL, 30H        ; convert ASCII to number
 
-    ; Display result prompt
-    LEA DX, STR3
+    ; ---- Addition ----
+    ADD AL, BL         ; sum
+    MOV BL, AL         ; store sum temporarily
+
+    ; ---- Display result ----
+    MOV DX, OFFSET MSG3
     MOV AH, 09H
     INT 21H
 
-    ; Perform addition
-    ADD AL, BL
-    MOV AH, 00H
-    AAA
-
-    ; Display sum
-    MOV BL, AL
-    MOV DL, AH
-    ADD DL, 30H
-    MOV AH, 02H
-    INT 21H
-
+    ADD BL, 30H        ; convert sum to ASCII
     MOV DL, BL
-    ADD DL, 30H
     MOV AH, 02H
-    INT 21H
+    INT 21H            ; print sum
 
-    ; Exit to DOS
+    ; ---- Exit ----
     MOV AH, 4CH
     INT 21H
 
