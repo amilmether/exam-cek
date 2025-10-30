@@ -3,37 +3,39 @@
 #include <stdlib.h>
 void main()
 {
-    FILE *fp;
-    int i, addr1, j, staddr1;
-    char name[10], line[50], name1[10], staddr[10];
-    printf("Enter program name : ");
+    FILE *fp1;
+    char line[50], staddr[20], name[20], name1[20];
+    int staddr1, i, j;
+
+    fp1 = fopen("objectcode.txt", "r");
+
+    printf("enter the name: ");
     scanf("%s", name);
-    fp = fopen("objcode.txt", "r");
-    fscanf(fp, "%s", line);
-    fscanf(fp, "%s", line);
-    for (i = 2, j = 0; i < 8 && j < 6; i++, j++)
+    fscanf(fp1, "%s", line);
+
+    for (i = 2, j = 0, i < 8; j < 6; i++, j++)
         name1[j] = line[i];
     name1[j] = '\0';
-    printf("Name from obj: %s\n", name1);
+    printf("NAME %s\n", name1);
+
     if (strcmp(name, name1) == 0)
     {
-        fscanf(fp, "%s", line);
-        do
+        while (fscanf(fp1, "%s", line) == 1)
         {
             if (line[0] == 'T')
             {
-                for (i = 2, j = 0; i < 8 && j < 6; i++, j++)
+                for (i = 2, j = 0, i < 8; j < 6; i++, j++)
                     staddr[j] = line[i];
                 staddr[j] = '\0';
-                staddr1 = atoi(staddr);
+                staddr1 = (atoi(staddr));
                 i = 12;
                 while (line[i] != '$')
                 {
                     if (line[i] != '^')
                     {
-                        printf("%0d\t%c%c\n", staddr1, line[i], line[i + 1]);
-                        staddr1++;
+                        printf("00%d \t\t%c%c\n", staddr1, line[i], line[i + 1]);
                         i = i + 2;
+                        staddr1++;
                     }
                     else
                     {
@@ -43,10 +45,9 @@ void main()
             }
             else if (line[0] == 'E')
             {
-                printf("Jump to execution address:%s\n", &line[2]);
-                fscanf(fp, "%s", line);
+                printf("JUMP TO EXECUTION %s", &line[2]);
+                return;
             }
-        } while (!feof(fp));
+        }
     }
-    fclose(fp);
 }
